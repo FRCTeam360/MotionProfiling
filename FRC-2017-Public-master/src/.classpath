@@ -2,5 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/josh/wpilib/java/current/lib/WPILib.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/Downloads/navx-mxp-libs (1)/roborio/java/lib/navx_frc.jar"/>
+	<classpathentry kind="lib" path="/Users/josh/Desktop/MotionProfilingPart2/CTRLib (1).jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

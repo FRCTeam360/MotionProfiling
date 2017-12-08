@@ -40,7 +40,9 @@ public class Robot extends IterativeRobot {
 
     private Looper mEnabledLooper = new Looper();
 
-
+    public double findScrub(double robotDiameter, double encodercountsPer10Rots, double countsToFeet){
+    	return encodercountsPer10Rots / countsToFeet / robotDiameter * 10 * Math.PI;
+    }
     public Robot() {
     }
 

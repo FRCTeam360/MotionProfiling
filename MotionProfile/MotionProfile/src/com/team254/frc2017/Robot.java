@@ -1,7 +1,11 @@
 package com.team254.frc2017;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import com.team254.frc2017.auto.AutoModeExecuter;
 import com.team254.frc2017.auto.modes.RamHopperShootModeBlue;
 import com.team254.frc2017.loops.Looper;
@@ -97,12 +101,14 @@ public class Robot extends IterativeRobot {
             throw t;
         }
     }
-
+    public static Joystick L = new Joystick(2);
+    public static Joystick R = new Joystick(1);
     /**
      * This function is called periodically during autonomous
      */
     @Override
     public void autonomousPeriodic() {
+    	//mDrive.setOpenLoop(L.getRawAxis(1), R.getRawAxis(1));
         allPeriodic();
     }
 
@@ -114,7 +120,6 @@ public class Robot extends IterativeRobot {
         try {
             // Start loopers
             mEnabledLooper.start();
-            mDrive.setOpenLoop(DriveSignal.NEUTRAL);
             mDrive.setBrakeMode(false);
             // Shift to high
             zeroAllSensors();
@@ -134,8 +139,7 @@ public class Robot extends IterativeRobot {
      */
     @Override
     public void teleopPeriodic() {
-        
-        
+    	
     }
 
     @Override
@@ -151,7 +155,6 @@ public class Robot extends IterativeRobot {
             // Call stop on all our Subsystems.
             mSubsystemManager.stop();
 
-            mDrive.setOpenLoop(DriveSignal.NEUTRAL);
           
         } catch (Throwable t) {
             throw t;
@@ -160,7 +163,6 @@ public class Robot extends IterativeRobot {
 
     @Override
     public void disabledPeriodic() {
-        zeroAllSensors();
         allPeriodic();
     }
 
@@ -168,13 +170,7 @@ public class Robot extends IterativeRobot {
     public void testInit() {
         Timer.delay(0.5);
 
-        boolean results = Drive.getInstance().checkSystem();
         
-        if (!results) {
-            System.out.println("CHECK ABOVE OUTPUT SOME SYSTEMS FAILED!!!");
-        } else {
-            System.out.println("ALL SYSTEMS PASSED");
-        }
     }
 
     @Override

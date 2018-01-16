@@ -22,11 +22,8 @@ public class StartToHopperBlue implements PathContainer {
     @Override
     public Path buildPath() {
         ArrayList<Waypoint> sWaypoints = new ArrayList<Waypoint>();
-        sWaypoints.add(new Waypoint(16, 234, 0, 0));
-        sWaypoints.add(new Waypoint(97, 234, 54, 90));
-        sWaypoints.add(new Waypoint(97, 295, 0, 90, "RamWall"));
-        sWaypoints.add(new Waypoint(97, 300, 0, 40));
-        sWaypoints.add(new Waypoint(97, 340, 0, 40));
+        sWaypoints.add(new Waypoint(16, 234, 0, 10));
+        sWaypoints.add(new Waypoint(60, 234, 0, 10));
 
         return PathBuilder.buildPathFromWaypoints(sWaypoints);
     }

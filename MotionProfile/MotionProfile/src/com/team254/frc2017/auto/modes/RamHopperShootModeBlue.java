@@ -27,12 +27,7 @@ public class RamHopperShootModeBlue extends AutoModeBase {
     protected void routine() throws AutoModeEndedException {
         PathContainer hopperPath = new StartToHopperBlue();
         runAction(new ResetPoseFromPathAction(hopperPath));
-        runAction(
-                new ParallelAction(Arrays.asList(new Action[] {
-                        new DrivePathAction(hopperPath),
-                        new SeriesAction(Arrays.asList(new Action[] {
-                                new WaitForPathMarkerAction("RamWall"), new WaitAction(0.25), new ForceEndPathAction()
-                        }))
-                }))); // Drive to hopper, cancel path once the robot runs into the wall
+        runAction(new DrivePathAction(hopperPath)
+                ); // Drive to hopper, cancel path once the robot runs into the wall
     }
 }
